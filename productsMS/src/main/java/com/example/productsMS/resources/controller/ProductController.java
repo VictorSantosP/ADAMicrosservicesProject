@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/pedidos")
+@RequestMapping("/api/produtos")
 public class ProductController {
 
     private final ProductService service;
@@ -21,8 +21,11 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Product>> listaPedidos (){
-        return null;
+    public ResponseEntity<List<Product>> listaProdutos (){
+
+        List<Product> response = service.listarProdutos();
+        return ResponseEntity.ok(response);
+
     }
 
 }

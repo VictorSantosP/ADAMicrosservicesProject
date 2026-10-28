@@ -22,6 +22,8 @@ public class ProductService {
             new Product(10, "Carregador USB-C", "Carregador de 65W com suporte a Power Delivery", 119.90, 40)
     ));
 
-
+    public List<Product> listarProdutos(){
+        return this.products;
+    }
 
 }
