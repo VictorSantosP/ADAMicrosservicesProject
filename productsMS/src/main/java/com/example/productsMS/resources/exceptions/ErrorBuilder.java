@@ -10,12 +10,12 @@ public class ErrorBuilder {
     private ErrorBuilder() {
     }
 
-    public static ApiError build(
+    public static ApiErrorResponse build(
             HttpStatus status,
             String message,
             ServerWebExchange exchange
     ) {
-        return new ApiError(
+        return new ApiErrorResponse(
                 Instant.now(),
                 status.value(),
                 status.getReasonPhrase(),

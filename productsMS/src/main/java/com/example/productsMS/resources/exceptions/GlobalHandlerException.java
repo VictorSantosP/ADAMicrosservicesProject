@@ -1,6 +1,6 @@
 package com.example.productsMS.resources.exceptions;
 
-import com.example.productsMS.resources.exceptions.ApiError;
+import com.example.productsMS.resources.exceptions.ApiErrorResponse;
 import com.example.productsMS.resources.exceptions.ErrorBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ public class GlobalHandlerException {
             LoggerFactory.getLogger(GlobalHandlerException.class);
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiError> handleUnexpectedException(
+    public ResponseEntity<ApiErrorResponse> handleUnexpectedException(
             Exception exception,
             ServerWebExchange exchange
     ) {
@@ -27,7 +27,7 @@ public class GlobalHandlerException {
                 exception
         );
 
-        ApiError error = ErrorBuilder.build(
+        ApiErrorResponse error = ErrorBuilder.build(
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 "Ocorreu um erro interno ao processar a requisição.",
                 exchange
